@@ -19,8 +19,8 @@ let mouse = {
 };
 
 canvas.addEventListener("click", function (event) {
-  mouse.x = event.x;
-  mouse.y = event.y;
+  mouse.x = Math.random() * canvas.width;
+  mouse.y = Math.random() * canvas.height;
   let size = Math.random() * 30;
   if (size < 1) {
     size = +1;
@@ -32,16 +32,17 @@ canvas.addEventListener("click", function (event) {
   console.log(event);
 });
 
-// canvas.addEventListener("mousemove", function (event) {
-//   mouse.x = event.x;
-//   mouse.y = event.y;
-//   let size = Math.random() * 30;
-//   if (size < 1) {
-//     size = +1;
-//   }
-//   ctx.fillStyle = "red";
-//   ctx.beginPath();
-//   ctx.arc(mouse.x, mouse.y, size, 0, Math.PI * 2);
-//   ctx.fill();
-//   console.log(event);
-// });
+window.onload = function () {
+  for (let i = 0; i < 30; i++) {
+    mouse.x = Math.random() * canvas.width;
+    mouse.y = Math.random() * canvas.height;
+    let size = Math.random() * 30;
+    if (size < 1) {
+      size = +1;
+    }
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+};
