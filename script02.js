@@ -5,8 +5,6 @@ canvas.width = window.innerWidth;
 let particlesArray = [];
 let hue = 0;
 
-console.log(ctx);
-
 window.addEventListener("resize", function () {
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
@@ -55,13 +53,6 @@ class Particle {
   }
 }
 
-// function init() {
-//   for (let i = 0; i < 50; i++) {
-//     particlesArray.push(new Particle());
-//   }
-// }
-// init();
-
 function handleParticles() {
   for (let i = 0; i < particlesArray.length; i++) {
     particlesArray[i].update();
@@ -87,8 +78,6 @@ function handleParticles() {
 }
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // ctx.fillStyle = "rgba(0, 0, 0, 0.01)";
-  // ctx.fillRect(0, 0, canvas.width, canvas.height);
   handleParticles();
   hue += 2;
   requestAnimationFrame(animate);
